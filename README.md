@@ -20,7 +20,7 @@ var parse = require( 'utils-hjson-parse' );
 
 #### parse( value )
 
-Attempts to parse an input `string` as [Human JSON](http://hjson.org/)
+Attempts to parse an input `string` as [Human JSON](http://hjson.org/).
 
 ``` javascript
 var out = parse( '{"beep":"boop"}' );
