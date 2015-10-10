@@ -1,0 +1,13 @@
+{
+	beep: boop
+
+	# comment...
+	value: 5
+
+	# Multiline string:
+	str:
+	'''
+	beep
+	boop
+	'''
+}

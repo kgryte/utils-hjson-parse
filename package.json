@@ -1,5 +1,5 @@
 {
-  "name": "utils-json-parse",
+  "name": "utils-hjson-parse",
   "version": "0.0.0",
   "description": "Attempts to parse an input string as Human JSON.",
   "author": {
@@ -33,10 +33,11 @@
     "parse",
     "try",
     "trap",
-    "catch"
+    "catch",
+    "config"
   ],
   "bugs": {
-    "url": "https://github.com/kgryte/utils-json-parse/issues"
+    "url": "https://github.com/kgryte/utils-hjson-parse/issues"
   },
   "dependencies": {
     "hjson": "^1.7.4"

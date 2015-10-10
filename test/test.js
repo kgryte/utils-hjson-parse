@@ -3,7 +3,9 @@
 
 // MODULES //
 
-var chai = require( 'chai' ),
+var fs = require( 'fs' ),
+	path = require( 'path' ),
+	chai = require( 'chai' ),
 	parse = require( './../lib' );
 
 
@@ -11,6 +13,17 @@ var chai = require( 'chai' ),
 
 var expect = chai.expect,
 	assert = chai.assert;
+
+
+// FIXTURES //
+
+var fixture,
+	fpath;
+
+fpath = path.join( __dirname, 'fixtures', 'config.hjson' );
+fixture = fs.readFileSync( fpath, {
+	'encoding': 'utf8'
+});
 
 
 // TESTS //
@@ -22,8 +35,8 @@ describe( 'utils-hjson-parse', function tests() {
 	});
 
 	it( 'should return an error if unable to parse a provided value', function test() {
-		var err = parse( '{beep":boop""}' );
-		assert.isTrue( err instanceof SyntaxError );
+		var err = parse( '{beep":boop"}' );
+		assert.isTrue( err instanceof Error );
 	});
 
 	it( 'should return a parsed JSON object', function test() {
@@ -39,16 +52,13 @@ describe( 'utils-hjson-parse', function tests() {
 	});
 
 	it( 'should return a parsed JSON object based on Human JSON', function test() {
-		var obj = '{\nbeep:boop\n#comment\nvalue: 5\n}',
-			out;
-
-		out = parse( obj );
+		var out = parse( fixture );
 
 		assert.deepEqual( out, {
 			'beep': 'boop',
-			'value': 5
+			'value': 5,
+			'str': 'beep\nboop'
 		});
-		assert.deepEqual( out, JSON.parse( obj ) );
 	});
 
 });

@@ -27,19 +27,32 @@ var out = parse( '{"beep":"boop"}' );
 // returns {'beep':'boop'}
 
 out = parse( '{beep:boop"}' );
-// returns <SyntaxError>
+// returns <Error>
 ```
 
 
 ## Notes
 
+*	This `function` wraps [HJSON#parse](https://github.com/laktak/hjson-js) in a `try/catch` block.
 *	The presence of `try/catch` within any `function` prevents JavaScript compiler optimization. By isolating the `try/catch` block, we minimize the extent of optimization hell.
 
 
 ## Examples
 
 ``` javascript
+var fs = require( 'fs' ),
+	path = require( 'path' ),
+	parse = require( 'utils-hjson-parse' );
 
+// Load an HJSON file...
+var file = path.resolve( '/path/to/file.hjson' );
+file = fs.readFileSync( file, {
+	'encoding': 'utf8'
+});
+
+// Attempt to parse the file...
+file = parse( file );
+console.dir( file );
 ```
 
 To run the example code from the top-level application directory,
