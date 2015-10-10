@@ -2,7 +2,7 @@ Parse
 ===
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][codecov-image]][codecov-url] [![Dependencies][dependencies-image]][dependencies-url]
 
-> Attempts to parse an input string as [Human JSON](http://hhjson.org/).
+> Attempts to parse an input string as [Human JSON](http://hjson.org/).
 
 
 ## Installation
